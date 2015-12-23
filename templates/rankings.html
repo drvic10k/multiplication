@@ -1,0 +1,37 @@
+<div>
+  <table ng-hide="ctrl.records.length == 0" class="table table-striped">
+    <thead>
+      <tr>
+        <td>
+          Miesto
+        </td>
+        <td>
+          Čas
+        </td>
+        <td>
+          Meno
+        </td>
+        <td>
+          Trieda
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="record in ctrl.records" ng-class="{'gold': $index==0, 'silver': $index==1, 'bronze': $index==2}">
+        <td>
+          {{$index + 1}}.
+        </td>
+        <td>
+          {{record.record | date: 'mm:ss.sss'}}
+        </td>
+        <td>
+          {{record.firstName}} {{record.lastName}}
+        </td>
+        <td>
+          {{record.class}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 ng-show="ctrl.records.length == 0">Zatiaľ nie sú žiadne rekordy, možeš byť prvý.</h2>
+</div>

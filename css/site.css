@@ -1,0 +1,15 @@
+body{
+  padding-top: 70px;
+}
+
+tr.gold{
+  background-color: gold!important;
+}
+
+tr.silver{
+  background-color: silver!important;
+}
+
+tr.bronze{
+  background-color: #CD7F32!important;
+}

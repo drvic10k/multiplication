@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- angular -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-cookies.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>
+
+  <!-- modules -->
+  <script src="controllers.js"></script>
+  <script src="directives.js"></script>
+  <script src="services.js"></script>
+
+  <!-- main app -->
+  <script src="angular-app.js"></script>
+
+  <!-- services -->
+  <script src="dataProviderService.js"></script>
+
+  <!-- controllers -->
+  <script src="rankingsController.js"></script>
+  <script src="navigationController.js"></script>
+  <script src="trainingController.js"></script>
+
+  <!-- directives -->
+  <script src="ngSuccess.js"></script>
+  <script src="ngFocus.js"></script>
+  <script src="afterBinding.js"></script>
+
+  <!-- external -->
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="site.css">
+  <meta charset="utf-8">
+  <title>Násobilka</title>
+  <base href="/">
+</head>
+
+<body ng-app="myApp">
+  <nav class="navbar navbar-default navbar-fixed-top" ng-controller="navigationController">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="">Násobilka</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li ng-class="{'active': activeTab == 'training'}"><a href="#/training">Cvičenie</a></li>
+        <li ng-class="{'active': activeTab == 'rankings'}"><a href="#/rankings">Rekordy</a></li>
+    </div>
+  </nav>
+
+  <div class="container" ng-view></div>
+
+</body>
+
+</html>

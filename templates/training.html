@@ -1,0 +1,48 @@
+<div ng-controller="trainingController">
+  <ng-success time="timeInfo" person="personalInfo" submit="submit()"></ng-success>
+  <div class="row">
+    <div class="form-horizontal">
+      <div class="form-group">
+        <div class="radio-inline col-xs-2">
+          <label>
+            <input type="radio" ng-model="mode" value="multiply" checked> Násobenie
+          </label>
+        </div>
+        <div class="radio-inline col-xs-2">
+          <label>
+            <input type="radio" ng-model="mode" value="divide"> Delenie
+          </label>
+        </div>
+        <div class="col-xs-2">
+          <button type="button" class="btn btn-primary" ng-click="newProblems()">
+            Nové príklady
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" ng-repeat="row in priklady" after-binding>
+    <div class="col-xs-2 col-sm-3"></div>
+    <div class="col-xs-8 col-sm-6">
+      <form class="form-horizontal">
+        <div class="form-group form-group-lg" ng-class="{'has-error': row.invalid, 'has-success': row.valid}">
+          <label class="col-xs-4 col-sm-3 control-label">{{row.text}}</label>
+          <div class="col-xs-3 col-sm-2">
+            <input type="text" class="form-control" ng-model="row.result" ng-focus>
+          </div>
+          <div class="col-xs-1">
+            <i ng-show="row.valid" class="fa fa-check fa-2x text-success"></i>
+            <i ng-show="row.invalid" class="fa fa-times fa-2x text-danger"></i>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-xs-2 col-sm-3"></div>
+  </div>
+  <div class="row">
+    <button type="button" id="finish" ng-disabled="allValid" class="btn btn-primary" ng-click="finish()">
+      Skontrolovať
+    </button>
+    <h4 ng-class="{'text-danger': errors > 0, 'text-success': errors == 0}" style="display:inline;" ng-show="validated">Počet chýb: {{errors}}</h4>
+  </div>
+</div>

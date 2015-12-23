@@ -1,0 +1,33 @@
+{
+  "name": "multiplication",
+  "version": "0.0.0",
+  "description": "App for testing multiplication skills",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drvic10k/multiplication.git"
+  },
+  "keywords": [
+    "multiplication",
+    "division",
+    "nasobilka",
+    "nasobenie",
+    "delenie",
+    "matematika"
+  ],
+  "author": "drvic10k",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drvic10k/multiplication/issues"
+  },
+  "homepage": "https://github.com/drvic10k/multiplication",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "fs": "0.0.2",
+    "xml2js": "^0.4.15"
+  }
+}
