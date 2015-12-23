@@ -28,20 +28,23 @@ app.get('/rankings', function(req, res) {
           explicitArray: false
         });
         parser.parseString(data, function(err, result) {
-
-          if (result.root.entry !== undefined) {
-            if (result.root.entry.constructor !== Array) {
-              rankings.push(result.root.entry);
-            } else {
-              rankings = result.root.entry;
+          if (err) {
+            res.send(JSON.stringify(rankings.slice(0, 10)));
+          } else {
+            if (result.root.entry !== undefined) {
+              if (result.root.entry.constructor !== Array) {
+                rankings.push(result.root.entry);
+              } else {
+                rankings = result.root.entry;
+              }
             }
+
+            rankings.sort(function(a, b) {
+              return a.record - b.record;
+            });
+
+            res.send(JSON.stringify(rankings.slice(0, 10)));
           }
-
-          rankings.sort(function(a, b) {
-            return a.record - b.record;
-          });
-
-          res.send(JSON.stringify(rankings.slice(0, 10)));
         });
       }
     }
@@ -114,7 +117,9 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-var server = app.listen(1337, function() {
+var port = process.env.PORT || 1337;
+
+var server = app.listen(port, function() {
   var host = server.address().address;
   var port = server.address().port;
 
